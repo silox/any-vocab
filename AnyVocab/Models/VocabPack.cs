@@ -11,7 +11,7 @@ namespace AnyVocab.Models
         private List<VocabItem> vocabulary;
         public string Name { get; set; }
 
-        public VocabPack(string name)
+        public VocabPack(string name = "")
         {
             Name = name;
             vocabulary = new List<VocabItem>();

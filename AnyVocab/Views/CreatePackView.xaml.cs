@@ -23,13 +23,15 @@ namespace AnyVocab.Views
     public partial class CreatePackView : Page
     {
         private readonly Frame frame;
+        private readonly ComboBox comboBox;
         private readonly CreatePackViewModel viewModel;
 
-        public CreatePackView(Frame frame)
+        public CreatePackView(Frame frame, ComboBox comboBox)
         {
             InitializeComponent();
             viewModel = new();
             this.frame = frame;
+            this.comboBox = comboBox;
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -53,14 +55,22 @@ namespace AnyVocab.Views
 
         private void Button_Click_Save(object sender, RoutedEventArgs e)
         {
-            viewModel.StorePack();
+            var inputDialog = new InputDialogWindow();
+            bool? result = inputDialog.ShowDialog();
+            if (result == true)
+            {
+                string userInput = inputDialog.UserInput ?? "";
+                viewModel.UpdatePackName(userInput);
+                viewModel.StorePack();
+                MessageBox.Show("Pack successfully saved!");
+                frame.Content = new DefaultView(frame);
+                comboBox.ItemsSource = viewModel.getPackNames();
+            }
         }
 
         private void Button_Click_Discard(object sender, RoutedEventArgs e)
         {
             frame.Content = new DefaultView(frame);
-           // NavigationService navigationService = new(frame);
-           // navigationService.NavigateTo<DefaultView>();
         }
     }
 }

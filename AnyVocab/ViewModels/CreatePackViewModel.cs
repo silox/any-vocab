@@ -15,7 +15,7 @@ namespace AnyVocab.ViewModels
 
         public CreatePackViewModel()
         {
-            pack = new VocabPack("New Pack");
+            pack = new VocabPack();
         }
 
         public void AddVocab(string word, string translation)
@@ -26,7 +26,22 @@ namespace AnyVocab.ViewModels
         public void StorePack()
         {
             TranslationStorageService storageService = new();
+            if (pack.Name == "")
+            {
+                pack.Name = "New Pack";
+            }
             storageService.StorePackToFile(pack);
+        }
+
+        public void UpdatePackName(string name)
+        {
+            pack.Name = name;
+        }
+
+        public IEnumerable<string?> getPackNames()
+        {
+            TranslationStorageService storageService = new();
+            return storageService.getPackNames();
         }
     }
 }

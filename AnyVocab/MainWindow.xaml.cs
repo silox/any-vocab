@@ -47,7 +47,7 @@ namespace AnyVocab
 
         private void Button_Click_CreateVocab(object sender, RoutedEventArgs e)
         {
-            frame.Content = new CreatePackView(frame);
+            frame.Content = new CreatePackView(frame, PackSelectionComboBox);
         }
 
         private void Button_Click_Quit(object sender, RoutedEventArgs e)

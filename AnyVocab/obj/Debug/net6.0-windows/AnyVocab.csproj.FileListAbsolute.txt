@@ -28,3 +28,5 @@ C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\Def
 C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\DefaultView.baml
 C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\CreatePackView.g.cs
 C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\CreatePackView.baml
+C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\InputDialogWindow.baml
+C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\InputDialogWindow.g.cs

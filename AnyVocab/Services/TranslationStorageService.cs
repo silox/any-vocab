@@ -44,6 +44,12 @@ namespace AnyVocab.Services
 
         public void StorePackToFile(VocabPack pack)
         {
+            var packNames = getPackNames();
+            for (int i = 1; packNames.Contains(pack.Name); i++)
+            {
+                pack.Name = pack.Name.Replace($" {i - 1}", "");
+                pack.Name += $" {i}";
+            }
             string packPath = $"{packDirectory}{pack.Name}.csv";
             using (StreamWriter writer = new (packPath))
             {
@@ -51,7 +57,7 @@ namespace AnyVocab.Services
             }
         }
 
-        public List<string?> getPackNames()
+        public IEnumerable<string?> getPackNames()
         {
             if (!Directory.Exists(packDirectory))
             {
