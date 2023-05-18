@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using AnyVocab.Services;
+using AnyVocab.Views;
 
 namespace AnyVocab
 {
@@ -30,13 +31,13 @@ namespace AnyVocab
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new DefaultViewModel();
+            frame.Content = new DefaultView(frame);
             PackSelectionComboBox.ItemsSource = translationStorageService.getPackNames();
         }
 
         private void Button_Click_Practice(object sender, RoutedEventArgs e)
         {
-            DataContext = new PracticeViewModel();
+            frame.Content = new PracticeView(frame);
         }
 
         private void Button_Click_LoadVocab(object sender, RoutedEventArgs e)
@@ -46,7 +47,7 @@ namespace AnyVocab
 
         private void Button_Click_CreateVocab(object sender, RoutedEventArgs e)
         {
-            DataContext = new CreatePackViewModel();
+            frame.Content = new CreatePackView(frame);
         }
 
         private void Button_Click_Quit(object sender, RoutedEventArgs e)

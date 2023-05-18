@@ -2,7 +2,6 @@
 using AnyVocab.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,23 +18,25 @@ using System.Windows.Shapes;
 namespace AnyVocab.Views
 {
     /// <summary>
-    /// Interaction logic for DefaultView.xaml
+    /// Interaction logic for CreatePackView.xaml
     /// </summary>
-    public partial class CreatePackView : UserControl
+    public partial class CreatePackView : Page
     {
+        private readonly Frame frame;
         private readonly CreatePackViewModel viewModel;
 
-        public CreatePackView()
+        public CreatePackView(Frame frame)
         {
             InitializeComponent();
             viewModel = new();
+            this.frame = frame;
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
- 
+
         private void Button_Click_Add(object sender, RoutedEventArgs e)
         {
             string word = WordTextBox.Text;
@@ -57,7 +58,9 @@ namespace AnyVocab.Views
 
         private void Button_Click_Discard(object sender, RoutedEventArgs e)
         {
-            DataContext = new DefaultViewModel();
+            frame.Content = new DefaultView(frame);
+           // NavigationService navigationService = new(frame);
+           // navigationService.NavigateTo<DefaultView>();
         }
     }
 }

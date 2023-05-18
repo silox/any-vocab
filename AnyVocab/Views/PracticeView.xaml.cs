@@ -18,11 +18,14 @@ namespace AnyVocab.Views
     /// <summary>
     /// Interaction logic for PracticeView.xaml
     /// </summary>
-    public partial class PracticeView : UserControl
+    public partial class PracticeView : Page
     {
-        public PracticeView()
+        private readonly Frame frame;
+
+        public PracticeView(Frame frame)
         {
             InitializeComponent();
+            this.frame = frame;
         }
     }
 }

@@ -11,18 +11,6 @@
         Icon="Resources/AnyVocabIcon.png"
         Title="AnyVocab" Height="450" Width="800">
 
-    <Window.Resources>
-        <DataTemplate x:Name="defaultViewTemplate" DataType="{x:Type viewmodels:DefaultViewModel}">
-            <views:DefaultView DataContext="{Binding}"/>
-        </DataTemplate>
-        <DataTemplate x:Name="practiceViewTemplate" DataType="{x:Type viewmodels:PracticeViewModel}">
-            <views:PracticeView DataContext="{Binding}"/>
-        </DataTemplate>
-        <DataTemplate x:Name="createPackViewTemplate" DataType="{x:Type viewmodels:CreatePackViewModel}">
-            <views:CreatePackView DataContext="{Binding}"/>
-        </DataTemplate>
-    </Window.Resources>
-
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25*"/>
@@ -35,13 +23,13 @@
         <DockPanel Background="Gray" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
             <StackPanel>
                 <Button Content="Practice!" Height="25" Width="120" Margin="20" Click="Button_Click_Practice"/>
-                <Button Content="Load vocab pack" Height="25" Width="120" Margin="10" Click="Button_Click_LoadVocab"/>
+                <Label Content="Select a pack:" Height="25" Width="81"/>
                 <ComboBox x:Name="PackSelectionComboBox" Height="25" Width="120"/>
                 <Button Content="Create vocab pack" Height="25" Width="120" Margin="10" Click="Button_Click_CreateVocab"/>
                 <Button Content="Statistics" Height="25" Width="120" Margin="10" Click="Button_Click_Statistics"/>
             </StackPanel>
         </DockPanel>
-        <ContentControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Content="{Binding}"/>
+        <Frame x:Name="frame" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" NavigationUIVisibility="Hidden" Background="Beige"/>
         <Button Content="Quit" Height="25" Width="120" Grid.Row="1" Click="Button_Click_Quit" />
     </Grid>
 </Window>

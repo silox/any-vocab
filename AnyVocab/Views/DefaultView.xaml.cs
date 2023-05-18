@@ -18,11 +18,14 @@ namespace AnyVocab.Views
     /// <summary>
     /// Interaction logic for DefaultView.xaml
     /// </summary>
-    public partial class DefaultView : UserControl
+    public partial class DefaultView : Page
     {
-        public DefaultView()
+        private readonly Frame frame;
+
+        public DefaultView(Frame frame)
         {
             InitializeComponent();
+            this.frame = frame;
         }
     }
 }
