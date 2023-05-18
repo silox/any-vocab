@@ -7,7 +7,7 @@ using Fastenshtein;
 
 namespace AnyVocab.Models
 {
-    class VocabItem
+    public class VocabItem
     {
         public int? Id { get; set; }
         public string Word { get; set; }

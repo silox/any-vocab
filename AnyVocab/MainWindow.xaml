@@ -1,4 +1,5 @@
-﻿<Window x:Class="AnyVocab.MainWindow"
+﻿<!-- Icon by AnjuP on freeicons.io -->
+<Window x:Class="AnyVocab.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,11 +8,18 @@
         xmlns:viewmodels="clr-namespace:AnyVocab.ViewModels"
         xmlns:views="clr-namespace:AnyVocab.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Icon="Resources/AnyVocabIcon.png"
+        Title="AnyVocab" Height="450" Width="800">
 
     <Window.Resources>
+        <DataTemplate x:Name="defaultViewTemplate" DataType="{x:Type viewmodels:DefaultViewModel}">
+            <views:DefaultView DataContext="{Binding}"/>
+        </DataTemplate>
         <DataTemplate x:Name="practiceViewTemplate" DataType="{x:Type viewmodels:PracticeViewModel}">
             <views:PracticeView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="createPackViewTemplate" DataType="{x:Type viewmodels:CreatePackViewModel}">
+            <views:CreatePackView DataContext="{Binding}"/>
         </DataTemplate>
     </Window.Resources>
 
@@ -28,8 +36,9 @@
             <StackPanel>
                 <Button Content="Practice!" Height="25" Width="120" Margin="20" Click="Button_Click_Practice"/>
                 <Button Content="Load vocab pack" Height="25" Width="120" Margin="10" Click="Button_Click_LoadVocab"/>
-                <ComboBox Height="25" Width="120"/>
+                <ComboBox x:Name="PackSelectionComboBox" Height="25" Width="120"/>
                 <Button Content="Create vocab pack" Height="25" Width="120" Margin="10" Click="Button_Click_CreateVocab"/>
+                <Button Content="Statistics" Height="25" Width="120" Margin="10" Click="Button_Click_Statistics"/>
             </StackPanel>
         </DockPanel>
         <ContentControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Content="{Binding}"/>

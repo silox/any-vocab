@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="AnyVocab.Views.CreatePackView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AnyVocab.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+        <Label Content="Word" HorizontalAlignment="Left" Margin="104,60,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Translation" HorizontalAlignment="Left" Margin="235,60,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="WordTextBox" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Margin="63,105,0,0"/>
+        <TextBox x:Name="TranslationTextBox" HorizontalAlignment="Left" Height="20" TextWrapping="NoWrap" VerticalAlignment="Top" Width="140" Margin="218,105,0,0"/>
+        <DataGrid x:Name="VocabularyGrid" AutoGenerateColumns="True" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="DataGrid_SelectionChanged" Margin="63,146,0,0" Height="122" Width="362" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Word" Binding="{Binding Word}" Width="*" />
+                <DataGridTextColumn Header="Translation" Binding="{Binding Translation}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Add" HorizontalAlignment="Left" Height="20" Margin="375,105,0,0" VerticalAlignment="Top" Width="50" Click="Button_Click_Add"/>
+        <Button Content="Discard pack" HorizontalAlignment="Left" Height="34" Margin="439,156,0,0" VerticalAlignment="Top" Width="108" Click="Button_Click_Discard"/>
+        <Button Content="Save pack" HorizontalAlignment="Left" Height="34" Margin="439,225,0,0" VerticalAlignment="Top" Width="108" Click="Button_Click_Save"/>
+
+    </Grid>
+</UserControl>

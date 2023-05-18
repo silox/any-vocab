@@ -8,11 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\anyvocabicon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Fastenshtein" Version="1.0.0.8" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\anyvocabicon.png" />
   </ItemGroup>
 
 </Project>

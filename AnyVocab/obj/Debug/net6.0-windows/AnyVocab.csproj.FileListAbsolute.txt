@@ -24,3 +24,7 @@ C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\AnyVocab.
 C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\PracticeView.g.cs
 C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\PracticeView.baml
+C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\DefaultView.g.cs
+C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\DefaultView.baml
+C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\CreatePackView.g.cs
+C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\CreatePackView.baml
