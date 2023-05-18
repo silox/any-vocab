@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnyVocab.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,28 @@ namespace AnyVocab
         {
             InitializeComponent();
         }
+        private void Button_Click_Practice(object sender, RoutedEventArgs e)
+        {
+            DataContext = new PracticeViewModel();
+        }
 
+        private void Button_Click_LoadVocab(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_CreateVocab(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_Quit(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

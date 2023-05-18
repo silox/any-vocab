@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\edrui\source\repos\AnyVocab\AnyVocab\App.xaml
-11407045341
+374069797
 
-5-433593472
-1941709816142
-MainWindow.xaml;
+11-1009609581
+195-415340928
+MainWindow.xaml;Views\DefaultView.xaml;Views\PracticeView.xaml;
 
-False
+True
 
