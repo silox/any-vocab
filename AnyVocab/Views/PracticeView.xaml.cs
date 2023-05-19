@@ -18,11 +18,13 @@ namespace AnyVocab.Views
         private readonly VocabPack? pack;
         private readonly PracticeViewModel viewModel;
         private VocabItem currentVocab;
+        private Statistics stats;
 
-        public PracticeView(Frame frame, TranslationStorageService translationStorageService, string packName)
+        public PracticeView(Statistics statistics, Frame frame, TranslationStorageService translationStorageService, string packName)
         {
             InitializeComponent();
             this.frame = frame;
+            stats = statistics;
             pack = translationStorageService.ReadTranslationsFromFile(packName);
             if (pack == null)
             {
@@ -47,12 +49,14 @@ namespace AnyVocab.Views
                 AssessmentLabel.Content = "Correct!";
                 AssessmentLabel.Foreground = Brushes.Green;
                 viewModel.AddGuessed(currentVocab);
+                stats.trackCorrect();
             }
             else
             {
                 AssessmentLabel.Content = $"Wrong answer. Expected '{currentVocab.Translation}'";
                 AssessmentLabel.Foreground = Brushes.Red;
                 viewModel.returnPending(currentVocab);
+                stats.trackIncorrect();
             }
             AssessmentLabel.Visibility = Visibility.Visible;
             NextButton.Visibility = Visibility.Visible;

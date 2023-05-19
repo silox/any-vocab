@@ -30,3 +30,5 @@ C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\Cre
 C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\CreatePackView.baml
 C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\InputDialogWindow.baml
 C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\InputDialogWindow.g.cs
+C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\StatisticsView.g.cs
+C:\Users\edrui\source\repos\AnyVocab\AnyVocab\obj\Debug\net6.0-windows\Views\StatisticsView.baml
