@@ -9,7 +9,12 @@
         xmlns:views="clr-namespace:AnyVocab.Views"
         mc:Ignorable="d"
         Icon="Resources/AnyVocabIcon.png"
-        Title="AnyVocab" Height="450" Width="800">
+        Title="AnyVocab" Height="450" Width="800"
+        MinWidth="600"
+        MinHeight="300"
+        MaxWidth="1000"
+        MaxHeight="800">
+
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -25,7 +30,7 @@
                 <Button Content="Practice!" Height="25" Width="120" Margin="20" Click="Button_Click_Practice"/>
                 <Label Content="Select a pack:" Height="25" Width="81"/>
                 <ComboBox x:Name="PackSelectionComboBox" Height="25" Width="120"/>
-                <Button Content="Create vocab pack" Height="25" Width="120" Margin="10" Click="Button_Click_CreateVocab"/>
+                <Button Content="Create pack" Height="25" Width="120" Margin="10" Click="Button_Click_CreateVocab"/>
                 <Button Content="Statistics" Height="25" Width="120" Margin="10" Click="Button_Click_Statistics"/>
             </StackPanel>
         </DockPanel>
