@@ -93,7 +93,7 @@ namespace AnyVocab.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AnyVocab;component/views/practiceview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AnyVocab;V1.0.0.0;component/views/practiceview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\PracticeView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

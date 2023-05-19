@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -83,7 +84,7 @@ namespace AnyVocab.Views
                     MessageBoxResult result = MessageBox.Show("Do you want to save incorrectly answered translations to a new pack?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (result == MessageBoxResult.Yes)
                     {
-                        viewModel.dumpIncorrectVocab(comboBox);
+                        Task.Run(() => viewModel.dumpIncorrectVocab(comboBox));
                     }
                 }
 

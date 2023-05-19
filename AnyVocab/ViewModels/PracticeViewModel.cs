@@ -3,6 +3,7 @@ using AnyVocab.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace AnyVocab.ViewModels
@@ -15,7 +16,7 @@ namespace AnyVocab.ViewModels
         private HashSet<VocabItem> failed;
         public VocabItem? CurrentVocab { get; set; }
         private TranslationStorageService translationStorageService;
-
+        private readonly object fileStorageLock = new();
 
         public PracticeViewModel(VocabPack pack, TranslationStorageService translationStorageService)
         {
@@ -47,8 +48,14 @@ namespace AnyVocab.ViewModels
             {
                 pack.AddVocabItem(failedVocab);
             }
-            translationStorageService.StorePackToFile(pack);
-            comboBox.ItemsSource = translationStorageService.getPackNames();
+            lock (fileStorageLock)
+            {
+                translationStorageService.StorePackToFile(pack);
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    comboBox.ItemsSource = translationStorageService.getPackNames();
+                });
+            }
         }
 
         public void AddGuessed(VocabItem vocab)
