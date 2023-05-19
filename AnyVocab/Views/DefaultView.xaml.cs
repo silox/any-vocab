@@ -20,12 +20,10 @@ namespace AnyVocab.Views
     /// </summary>
     public partial class DefaultView : Page
     {
-        private readonly Frame frame;
 
-        public DefaultView(Frame frame)
+        public DefaultView()
         {
             InitializeComponent();
-            this.frame = frame;
         }
     }
 }

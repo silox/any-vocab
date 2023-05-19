@@ -33,7 +33,7 @@ namespace AnyVocab
         public MainWindow()
         {
             InitializeComponent();
-            frame.Content = new DefaultView(frame);
+            frame.Content = new DefaultView();
             PackSelectionComboBox.ItemsSource = translationStorageService.getPackNames();
             statistics = new Statistics();
         }
@@ -48,7 +48,7 @@ namespace AnyVocab
             }
             try
             {
-                frame.Content = new PracticeView(statistics, frame, translationStorageService, packName);
+                frame.Content = new PracticeView(statistics, frame, translationStorageService, packName, PackSelectionComboBox);
             }
             catch (Exception ex)
             {

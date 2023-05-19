@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -19,18 +20,20 @@ namespace AnyVocab.Views
         private readonly PracticeViewModel viewModel;
         private VocabItem currentVocab;
         private Statistics stats;
+        private ComboBox comboBox;
 
-        public PracticeView(Statistics statistics, Frame frame, TranslationStorageService translationStorageService, string packName)
+        public PracticeView(Statistics statistics, Frame frame, TranslationStorageService translationStorageService, string packName, ComboBox comboBox)
         {
             InitializeComponent();
             this.frame = frame;
+            this.comboBox = comboBox;
             stats = statistics;
             pack = translationStorageService.ReadTranslationsFromFile(packName);
             if (pack == null)
             {
                 throw new Exception("Failed to load pack");
             }
-            viewModel = new(pack);
+            viewModel = new(pack, translationStorageService);
             CounterLabel.Content = $"{viewModel.GetGuessedCount()}/{viewModel.GetTotalCount()}";
             currentVocab = viewModel.GetNextVocab()!;  // First item is always non-null
             WordLabel.Content = currentVocab.Word;
@@ -39,7 +42,7 @@ namespace AnyVocab.Views
         private void Button_Click_Skip(object sender, RoutedEventArgs e)
         {
             viewModel.returnPending(currentVocab);
-            NextButton.Visibility = Visibility.Visible;
+            Button_Click_Next(sender, e);
         }
 
         private void Button_Click_Check(object sender, RoutedEventArgs e)
@@ -55,6 +58,7 @@ namespace AnyVocab.Views
             {
                 AssessmentLabel.Content = $"Wrong answer. Expected '{currentVocab.Translation}'";
                 AssessmentLabel.Foreground = Brushes.Red;
+                viewModel.addFailed(currentVocab);
                 viewModel.returnPending(currentVocab);
                 stats.trackIncorrect();
             }
@@ -70,7 +74,20 @@ namespace AnyVocab.Views
             currentVocab = viewModel.GetNextVocab();
             if (currentVocab == null)
             {
-                frame.Content = new DefaultView(frame);
+                if (viewModel.GetIncorrectCount() == 0)
+                {
+                    MessageBox.Show("Congratulations! You have completed the pack!");
+                }
+                else
+                {
+                    MessageBoxResult result = MessageBox.Show("Do you want to save incorrectly answered translations to a new pack?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        viewModel.dumpIncorrectVocab(comboBox);
+                    }
+                }
+
+                frame.Content = new DefaultView();
                 return;
             }
             WordLabel.Content = currentVocab.Word;
@@ -78,7 +95,7 @@ namespace AnyVocab.Views
         }
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            frame.Content = new DefaultView(frame);
+            frame.Content = new DefaultView();
         }
     }
 }

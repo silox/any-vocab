@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace AnyVocab.Views
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for InputDialogWindow.xaml
     /// </summary>
     public partial class InputDialogWindow : Window
     {

@@ -35,7 +35,7 @@ namespace AnyVocab.Views
 
         public void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            frame.Content = new DefaultView(frame);
+            frame.Content = new DefaultView();
         }
     }
 }

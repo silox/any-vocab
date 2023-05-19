@@ -63,14 +63,14 @@ namespace AnyVocab.Views
                 viewModel.UpdatePackName(userInput);
                 viewModel.StorePack();
                 MessageBox.Show("Pack successfully saved!");
-                frame.Content = new DefaultView(frame);
+                frame.Content = new DefaultView();
                 comboBox.ItemsSource = viewModel.getPackNames();
             }
         }
 
         private void Button_Click_Discard(object sender, RoutedEventArgs e)
         {
-            frame.Content = new DefaultView(frame);
+            frame.Content = new DefaultView();
         }
     }
 }
