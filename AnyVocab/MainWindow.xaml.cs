@@ -37,7 +37,20 @@ namespace AnyVocab
 
         private void Button_Click_Practice(object sender, RoutedEventArgs e)
         {
-            frame.Content = new PracticeView(frame);
+            string? packName = PackSelectionComboBox.SelectedItem?.ToString();
+            if (packName == null)
+            {
+                MessageBox.Show("Please select a pack to practice");
+                return;
+            }
+            try
+            {
+                frame.Content = new PracticeView(frame, translationStorageService, packName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Button_Click_LoadVocab(object sender, RoutedEventArgs e)

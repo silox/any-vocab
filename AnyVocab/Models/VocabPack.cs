@@ -19,6 +19,8 @@ namespace AnyVocab.Models
 
         public List<VocabItem> GetVocabulary() { return vocabulary; }
 
+        public int GetVocabCount() { return vocabulary.Count; }
+
         public void AddVocabItem(VocabItem vocab)
         {
             vocabulary.Add(vocab);

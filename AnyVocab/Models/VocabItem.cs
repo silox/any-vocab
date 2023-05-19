@@ -33,7 +33,7 @@ namespace AnyVocab.Models
 
         public bool CheckTranslation(string currTrans)
         {
-            return Levenshtein.Distance(Translation, currTrans) <= 1;
+            return Levenshtein.Distance(Translation.ToLower(), currTrans.ToLower()) <= 1;
         }
     }
 }

@@ -18,12 +18,13 @@ namespace AnyVocab.Services
             this.packDirectory = packDirectory;
         }
 
-        public VocabPack? ReadTranslationsFromFile(string filePath)
+        public VocabPack? ReadTranslationsFromFile(string packName)
         {
             try
             {
+                string filePath = $"{packDirectory}{packName}.csv";
                 string[] lines = File.ReadAllLines(filePath);
-                VocabPack pack = new("A pack");
+                VocabPack pack = new(packName);
 
                 foreach (string line in lines)
                 {
